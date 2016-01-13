@@ -33,7 +33,7 @@ namespace Hangman
         
         private static string GetWord()
         {
-            var words = File.ReadAllLines(@"C:\projects\HangmanCrash\HangmanCrash\hangmanwords.txt");
+            var words = File.ReadAllLines(@"../hangmanwords.txt");
 
             var r = new Random();
             var position = r.Next(words.Length);
