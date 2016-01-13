@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace Hangman
 {
@@ -21,14 +22,32 @@ namespace Hangman
             while (continueGame)
             {
                 // Draw the Scene
-                DrawScene();
+                DrawScene(displayToPlayer.ToString());
                 
                 // Ask the person to guess a letter and store it
                 Console.WriteLine("What is your guess");
                 string guess = Console.ReadLine();
                 
                 // If that letter is in the word, show that letter - then ask again?
-                
+                if (wordToGuess.Contains(guess[0]))
+                {
+                    // They guessed correctly
+                    Console.WriteLine("That's in the word!");
+                    
+                    
+                    for (var i = 0; i < wordToGuess.Length; i++)
+                    {
+                        if (wordToGuess[i] == guess[0])
+                        {
+                            displayToPlayer[i] = wordToGuess[i];
+                        }
+                    }
+                }
+                else
+                {
+                    // They guessed incorrectly
+                    Console.WriteLine("That's not in the word :(");
+                }
                 // Otherwise that letter isn't in the word, we add a piece to hangman
                 
                 // Check if they win
@@ -42,9 +61,9 @@ namespace Hangman
             return "acre";
         }
         
-        private static string DrawScene()
+        private static void DrawScene(string displayToPlayer)
         {
-            return true;
+            Console.WriteLine(displayToPlayer);
         }
     }
 }
