@@ -10,8 +10,10 @@ namespace Hangman
         public static void Main(string[] args)
         {
             // Introduction Statement
+            Console.WriteLine("Welcome to Hangman");
             
             // Pick a Word
+            string wordToGuess = GetWord();
             
             // LOOP
                 // Draw the Scene
@@ -27,6 +29,11 @@ namespace Hangman
                 // They lost IF they have 5 bad guesses
             
             // Go back up to "Draww the Scene"
+        }
+        
+        private static string GetWord()
+        {
+            return "acre";
         }
     }
 }
