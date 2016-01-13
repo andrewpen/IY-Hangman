@@ -14,11 +14,18 @@ namespace Hangman
             
             // Pick a Word
             string wordToGuess = GetWord();
+            StringBuilder displayToPlayer = new StringBuilder(string.Empty.PadRight(wordToGuess.Length, '-'));
             
-            // LOOP
+            bool continueGame = true;
+            
+            while (continueGame)
+            {
                 // Draw the Scene
+                DrawScene();
                 
                 // Ask the person to guess a letter and store it
+                Console.WriteLine("What is your guess");
+                string guess = Console.ReadLine();
                 
                 // If that letter is in the word, show that letter - then ask again?
                 
@@ -27,13 +34,17 @@ namespace Hangman
                 // Check if they win
                 // They win IF the hidden word is equal to the guessed word, end the game
                 // They lost IF they have 5 bad guesses
-            
-            // Go back up to "Draww the Scene"
+            } // Go back up to "Draww the Scene"
         }
         
         private static string GetWord()
         {
             return "acre";
+        }
+        
+        private static string DrawScene()
+        {
+            return true;
         }
     }
 }
