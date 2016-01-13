@@ -34,7 +34,7 @@ namespace Hangman
                     // They guessed correctly
                     Console.WriteLine("That's in the word!");
                     
-                    
+                    // Update the word we show the user to show the guessed letter
                     for (var i = 0; i < wordToGuess.Length; i++)
                     {
                         if (wordToGuess[i] == guess[0])
@@ -46,12 +46,17 @@ namespace Hangman
                 else
                 {
                     // They guessed incorrectly
+                    // Otherwise that letter isn't in the word, we add a piece to hangman
                     Console.WriteLine("That's not in the word :(");
                 }
-                // Otherwise that letter isn't in the word, we add a piece to hangman
                 
                 // Check if they win
                 // They win IF the hidden word is equal to the guessed word, end the game
+                if (wordToGuess == displayToPlayer.ToString())
+                {
+                    Console.WriteLine("You guessed it!");
+                    continueGame = false;
+                }
                 // They lost IF they have 5 bad guesses
             } // Go back up to "Draww the Scene"
         }
