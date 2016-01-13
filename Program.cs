@@ -33,7 +33,12 @@ namespace Hangman
         
         private static string GetWord()
         {
-            return "acre";
+            var words = File.ReadAllLines(@"C:\projects\HangmanCrash\HangmanCrash\hangmanwords.txt");
+
+            var r = new Random();
+            var position = r.Next(words.Length);
+
+            return words[position];
         }
     }
 }
