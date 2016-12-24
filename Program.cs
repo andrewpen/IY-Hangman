@@ -63,7 +63,12 @@ namespace Hangman
         
         private static string GetWord()
         {
-            return "acre";
+            var words = File.ReadAllLines(@"../hangmanwords.txt");
+
+            var r = new Random();
+            var position = r.Next(words.Length);
+
+            return words[position];
         }
         
         private static void DrawScene(string displayToPlayer)
